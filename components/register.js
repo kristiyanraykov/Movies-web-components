@@ -1,7 +1,6 @@
 class Register extends HTMLElement {
-    constructor(){
-        super();
-        console.log('in register component');
+    connectedCallback() {
+        this.innerHTML = 'In register Component'
     }
 }
 
