@@ -1,3 +1,6 @@
+import {Router} from 'https://unpkg.com/@vaadin/router';
+
+
 import {html, render} from 'https://unpkg.com/lit-html?module';
 import { login } from '../services/authServices.js';
 
@@ -28,7 +31,7 @@ class Login extends HTMLElement {
         login(email, password)
         .then(res => {
             notify('Successful Login', 'success');
-            //TO DO REDIRECT To HOME
+            Router.go('/')
         })
         .catch(err => {
             notify(err.message, 'error');
