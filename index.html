@@ -31,6 +31,7 @@
             </ul>
         </nav>
         <div id="root"></div>
+
         <section class="notifications" style="display: none;">
             <p class="notification-message" id="errorBox">Message...</p>
         </section>
@@ -162,6 +163,23 @@
             </div>
         </footer>
     </div>
+<script>
+function notify (message, type = 'success'){
+    let notificationEl;
+    switch(type){
+        case 'success':
+        notificationEl = document.getElementById('successBox');
+            break;
+        case 'error':
+        notificationEl = document.getElementById('errorBox');
+            break;
 
+    }
+    notificationEl.innerText = message;
+    notificationEl.parentElement.style.display = 'block'
+    setTimeout(() => {
+    notificationEl.parentElement.style.display = 'none'
+    }, 3000);
+}</script>
 </body>
 </html>

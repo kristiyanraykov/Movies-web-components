@@ -19,4 +19,5 @@ router.setRoutes([
         path: '/register',
         component: 'register-component'
     },
-])
+]);
+
