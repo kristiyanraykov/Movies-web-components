@@ -1,5 +1,5 @@
 import {html, render} from 'https://unpkg.com/lit-html?module';
-
+import {getAllMovies} from '../services/movieService.js'
 const template = (ctx) => html`
 <h1 class="text-center">Movies</h1>
         <section>
@@ -13,7 +13,7 @@ const template = (ctx) => html`
         <div class=" mt-3 ">
             <div class="row d-flex d-wrap">
                 <div class="card-deck d-flex justify-content-center">
-
+                ${ctx.movies?.map(movie => html`<movie-card .data=${movie}></movie-card>`)}
 
                 </div>
             </div>
@@ -22,7 +22,13 @@ const template = (ctx) => html`
 
 class Movies extends HTMLElement {
     connectedCallback(){
+        getAllMovies()
+        .then(movies => {
+            this.movies = movies;
+            this.render();
+        })
         this.render();
+
     }
 
     render(){
