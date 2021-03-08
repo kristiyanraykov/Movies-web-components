@@ -1,0 +1,1 @@
+const databaseUrl = 'https://my-movies-a2d2f-default-rtdb.firebaseio.com';
